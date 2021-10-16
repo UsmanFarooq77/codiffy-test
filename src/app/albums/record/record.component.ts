@@ -28,6 +28,13 @@ export class RecordComponent implements OnInit {
   onSubmit() {
     this._data.getUpdatedRecord(this.album);
     this._router.navigate(['/']);
+    this.playAudio();
+  }
+  playAudio() {
+    const audio = new Audio();
+    audio.src = '../../../assets/notification-bell.wav'
+    audio.load();
+    audio.play();
   }
 
 }
