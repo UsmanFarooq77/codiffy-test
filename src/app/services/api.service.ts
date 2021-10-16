@@ -10,15 +10,15 @@ import { map } from 'rxjs/operators';
 })
 export class ApiService {
 
-  constructor(private _http : HttpClient) { }
+  constructor(private _http: HttpClient) { }
 
-  getMusicRecord(url) : Observable<Records>{
+  getMusicRecord(url): Observable<Records> {
     return this._http.get<any>(url)
-    .pipe(
-      map((records) => {
-      return  new RecordsModel(records)
-      })
-    )
+      .pipe(
+        map((records) => {
+          return new RecordsModel(records)
+        })
+      )
   }
 
 }

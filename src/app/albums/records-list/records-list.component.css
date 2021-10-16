@@ -1,11 +1,14 @@
-
-.container .search_text_field{
-    margin-bottom: 10px;
+.container .search_text_field {
+  margin-bottom: 10px;
+}
+.container .spinner-border {
+  width: 100px;
+  height: 100px;
 }
 .table .record_edit_icon span i {
-    cursor: pointer;
-    color: green;
-    }
-.pagination{
+  cursor: pointer;
+  color: green;
+}
+.pagination {
   justify-content: center;
 }

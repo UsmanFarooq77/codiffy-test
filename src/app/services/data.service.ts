@@ -43,20 +43,17 @@ export class DataService {
 
     this._api.getMusicRecord(url).subscribe((musicRecords) => {
       this.records = musicRecords;
-      console.log(this.records);
       this.musicRecords = musicRecords['results'];
       // this.musicRecords.map((records) => new AlbumModel(records));
       if (!this.updatedValue) {
         this.$musicRecordBehaviorSubject.next(this.musicRecords);
       }
       else {
-
-        console.log(this.isNextPage)
         if (this.isNextPage) {
           if (this.musicArtistName != this.updatedValue.artist.name) {
             for (let i = 0; i < this.updatedMusicRecords.length - 1; i++) {
               if (this.musicArtistName == this.updatedMusicRecords[i].artist.name) {
-                this.updatedMusicRecords[i].artist.name = this.updatedValue.artist.name
+                this.updatedMusicRecords[i].artist.name = this.updatedValue.artist.name;
               }
             }
             this.updatedMusicRecords[this.index] = this.updatedValue;
@@ -82,7 +79,7 @@ export class DataService {
             this.$musicRecordBehaviorSubject.next(this.updatedMusicRecordsNextPage);
           }
         }
-        
+
       }
     });
   }
@@ -129,7 +126,7 @@ export class DataService {
   getMusicRecordNext(url: string, next: boolean) {
     this.nextPage = next;
     this._api.getMusicRecord(url).subscribe((records) => {
-      this.musicRecords = records.results
+      this.musicRecords = records.results;
       this.$musicRecordBehaviorSubject.next(this.musicRecords)
     });
     this._api.getMusicRecord(url).subscribe((records) => {

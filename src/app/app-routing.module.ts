@@ -5,8 +5,8 @@ import { RecordComponent } from './albums/record/record.component';
 
 
 const routes: Routes = [
-  {path : '', component:RecordsListComponent},
-  {path : 'update-record/:id' , component: RecordComponent }
+  { path: '', component: RecordsListComponent },
+  { path: 'update-record/:id', component: RecordComponent }
 ];
 
 @NgModule({

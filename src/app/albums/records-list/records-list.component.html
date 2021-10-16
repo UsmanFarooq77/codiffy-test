@@ -6,7 +6,8 @@
       <div class="search_text_field">
         <input type="text" placeholder="Search" [(ngModel)]="searchText">
       </div>
-      <table class="table table-hover table-bordered">
+      <div *ngIf="isLoading" class="spinner-border text-primary"></div>
+      <table *ngIf="!isLoading" class="table table-hover table-bordered">
         <thead>
           <tr>
             <th>Artist</th>
@@ -28,14 +29,12 @@
         </tbody>
       </table>
       <div class="pagination">
-      <button (click)="previousPage(this.recordsPreviousPage)" [disabled]="!this._data.isPreviousPage">
-         <i class="fa fa-arrow-left fa-2x"
-        aria-hidden="true"></i>
-      </button>
-      <button (click)="nextPage(this.recordsNextPage)" [disabled]="!this._data.isNextPage">
-        <i class="fa fa-arrow-right fa-2x"
-        aria-hidden="true"></i>
-      </button>
+        <button (click)="previousPage(this.recordsPreviousPage)" [disabled]="!this._data.isPreviousPage">
+          <i class="fa fa-arrow-left fa-2x" aria-hidden="true"></i>
+        </button>
+        <button (click)="nextPage(this.recordsNextPage)" [disabled]="!this._data.isNextPage">
+          <i class="fa fa-arrow-right fa-2x" aria-hidden="true"></i>
+        </button>
       </div>
     </div>
   </div>
