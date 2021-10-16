@@ -1,0 +1,42 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 col-lg-12 col-12">
+      <h2>Music Records</h2>
+      <p>The below table has records of music albums.</p>
+      <div class="search_text_field">
+        <input type="text" placeholder="Search" [(ngModel)]="searchText">
+      </div>
+      <table class="table table-hover table-bordered">
+        <thead>
+          <tr>
+            <th>Artist</th>
+            <th>Album Title</th>
+            <th>Year</th>
+            <th>Condition</th>
+            <th>Edit</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let musicRecord of musicRecords | filter : searchText let i = index">
+            <td>{{musicRecord.artist.name}}</td>
+            <td>{{musicRecord.album_title}}</td>
+            <td>{{musicRecord.year}}</td>
+            <td>{{musicRecord.condition}}</td>
+            <td class="record_edit_icon"><span><i class="fa fa-pencil fa-2x" (click)="updateRecord(musicRecord , i)"
+                  aria-hidden="true"></i></span></td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="pagination">
+      <button (click)="previousPage(this.recordsPreviousPage)" [disabled]="!this._data.isPreviousPage">
+         <i class="fa fa-arrow-left fa-2x"
+        aria-hidden="true"></i>
+      </button>
+      <button (click)="nextPage(this.recordsNextPage)" [disabled]="!this._data.isNextPage">
+        <i class="fa fa-arrow-right fa-2x"
+        aria-hidden="true"></i>
+      </button>
+      </div>
+    </div>
+  </div>
+</div>

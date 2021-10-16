@@ -1,0 +1,31 @@
+<div class="container">
+    <div class="col-md-12 col-lg-12 col-12">
+        <div>
+            <h1>Add Album</h1>
+        </div>
+        <div class="form">
+            <form #albumForm="ngForm" (ngSubmit)="onSubmit()">
+                <div class="form-group">
+                    <label for="artist">Artist</label>
+                    <input type="text" class="form-control" placeholder="Artist" name="artist"
+                        [(ngModel)]="album.artist.name">
+                </div>
+                <div class="form-group">
+                    <label for="album-title">Album Title</label>
+                    <input type="text" class="form-control" placeholder="Album Title" name="album-title"
+                        [(ngModel)]="album.album_title">
+                </div>
+                <div class="form-group">
+                    <label for="year">Year</label>
+                    <input type="text" class="form-control" placeholder="Year" name="year" [(ngModel)]="album.year">
+                </div>
+                <div class="form-group">
+                    <label for="condition">Condition</label>
+                    <input type="text" class="form-control" placeholder="Condition" name="condition"
+                        [(ngModel)]="album.condition">
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+        </div>
+    </div>
+</div>
